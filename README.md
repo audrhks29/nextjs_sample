@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 프로젝트 생성방법
 
-## Getting Started
+[Nextjs 공식 페이지](https://nextjs.org/)
 
-First, run the development server:
+### 프로젝트 생성
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```jsx
+npx create-next-app@latest
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 프로젝트 실행
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```jsx
+npm run dev // 개발 모드에서 실행
+next build // 프로덕션 빌드 용도로 애플리케이션 빌드
+npm run start // Next.js 프로덕션 서버 시작
+```
+---
+### 1. Nextjs란?
+    - react의 framework중 한 종류로 Next.js는 Server-Side Rendering(SSR), 정적 웹 페이지 생성 등 리액트 기반 웹 애플리케이션 기능들을 가능케 하는 프레임워크
+---
+### 2. SSR(Server Side Rendering)이란?
+    - 서버에서 사용자에게 보여줄 페이지를 모두 미리 구성한 뒤 페이지를 렌더링을 하는 방식
+    - SSR의 동작과정 - 초기 화면 수행
+        1. 클라이언트에서는 확인 후 서버로 요청
+        2. 사용자가 브라우저에서 요청
+        3. 서버에서 데이터를 포함한 미리 구성된 HTML, CSS 파일을 클라이언트에게 전달
+        4. 전달받은 클라이언트에서 스크립트가 수행하여 최종적인 화면을 브라우저에 그려 사용자에게 보여짐
+    - SSR의 동작과정 - 페이지 이동 / 동작이 발생하는 경우
+        1. 브라우저에서 클라이언트로 요청
+        2. 요청한 정보를 다시 서버로 재 요청( 페이지를 이동하는 경우 서버로 요청을 해야 함)
+        3. 처리가 완료 된 후 클라이언트에 응답
+        4. 클라이언트에서 브라우저로 처리된 사항을 그려줌
+---
+### 3. Pre-rendering 방식 사용
+    - 서버에서 자바스크립트로 HTML 컨텐츠를 채운 완성된 파일을 클라이언트에게 전달하여 처리한다.  이러한 방식은 이미 구성된 HTML 파일을 사용자에게 보여주기 때문에 초기 페이지 로딩 속도가 빨라지며, 파일이 로드되기 전에 페이지가 모두 구성되어 있기에 SEO 점수에서도 높은 점수를 받는다.
+    ```
+    💡 검색엔진 최적화(SEO: Search Engine Optimization)
+    
+    검색엔진 최적화로 웹 사이트 결과에 더 잘 보이도록 최적화하는 것을 의미
+    
+    온라인 쇼핑몰의 경우 상단에 노출되는 것을 의미하는데 CSR을 이용하면 검색엔진 봇들이 초기 HTML 빈 페이지에 아무것도 없기에 데이터 수집을 못하여서 검색엔진 노출이 어렵다.
+    ```
+---
+### 4. Auto Routing
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- 프로젝트의 가장 바깥 폴더인 /pages폴더에서 component를 export 하면 폴더명이 페이지 route가 된다.
+    
+    ![스크린샷 2023-10-27 023848](https://github.com/audrhks29/nextjs_sample/assets/130128690/05363c61-e1e8-46bb-988d-b24022c26423)
